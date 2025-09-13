@@ -1,0 +1,52 @@
+[project]
+name = "portfoliooptimiser"
+version = "0.1.0"
+description = "A template for a Python project with UV"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Tom Aston", email = "mail@tomaston.dev"}
+]
+dependencies = [
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.4",
+    "invoke>=2.2.0",
+    "pyright>=1.1.403",
+    "pre-commit>=4.2.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/portfoliooptimiser"]
+
+[tool.uv.workspace]
+members = [".",]
+
+[tool.pyright]
+pythonVersion = "3.11"
+include = [
+  "src/portfoliooptimiser/**/*.py",
+  "tests/**/*.py"
+]
+exclude = [
+  "tests/",
+  "build/",
+  "dist/",
+  "venv/",
+]
+reportMissingTypeStubs = false
+reportMissingImports = true
+reportOptionalSubscript = false
+reportUnknownMemberType = false
+reportUnknownArgumentType = false
+reportUnknownVariableType = false
+root = "src"
+typeCheckingMode = "strict"
