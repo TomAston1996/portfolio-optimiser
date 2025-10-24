@@ -53,7 +53,7 @@ class PortfolioOptimiser:
             pd.DataFrame: Log returns for the specified tickers.
         """
         historical_data = self.market_api.get_historical_ticker_data(
-            tickers=tickers, price_type=PriceType.ADJUSTED_CLOSE, start_date=start_date, end_date=end_date
+            tickers=tickers, price_type=PriceType.CLOSE, start_date=start_date, end_date=end_date
         )
 
         returns = np.log(historical_data / historical_data.shift(1))

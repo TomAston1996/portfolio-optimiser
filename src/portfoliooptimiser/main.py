@@ -1,5 +1,8 @@
-def sum(x: int, y: int) -> int:
-    return x + y
+from portfoliooptimiser.market_api import YFinanceAPI
+from portfoliooptimiser.ui import PortfolioOptimiserUI
+
 
 if __name__ == "__main__":
-    print(sum(3, 5))
+    market_api = YFinanceAPI()
+    ui = PortfolioOptimiserUI(market_api=market_api)
+    ui.run()

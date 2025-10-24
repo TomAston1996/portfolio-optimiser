@@ -61,8 +61,8 @@ def audit(c: Context) -> None:
 @task
 def run(c: Context) -> None:
     """
-    Run the backtesting engine main script.
+    Run the ui main script.
 
     Run with: `invoke run`
     """
-    c.run("uv run python src/portfoliooptimiser/main.py")
+    c.run("streamlit run src/portfoliooptimiser/main.py")
