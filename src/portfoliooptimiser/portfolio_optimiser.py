@@ -168,7 +168,7 @@ class MaximumSharpeRatioOptimiser(PortfolioOptimiser):
 
         opts = sco.minimize(_min_func_sharpe, equal_weights, method="SLSQP", bounds=bnds, constraints=cons)
 
-        optimal_weights = opts["x"].round(3)
+        optimal_weights = opts["x"].round(4) # 4 decimal places as will convert to percentage
 
         assert isinstance(optimal_weights, np.ndarray)
 
@@ -224,7 +224,7 @@ class MinimumVolatilityOptimiser(PortfolioOptimiser):
             constraints=cons,
         )
 
-        optimal_weights = optv["x"].round(3)
+        optimal_weights = optv["x"].round(4) # 4 decimal places as will convert to percentage
 
         assert isinstance(optimal_weights, np.ndarray)
 
